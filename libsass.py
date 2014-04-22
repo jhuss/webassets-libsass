@@ -59,6 +59,6 @@ class LibSass(Filter):
                 filename=source_path,
                 output_style=self.style,
                 include_paths=(self.includes if self.includes else []),
-                mage_path=(self.images if self.images else '')
+                image_path=(self.images if self.images else '')
             )
         )

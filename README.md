@@ -2,33 +2,37 @@
 
 Filter for asset management "[webassets](https://github.com/miracle2k/webassets)" that uses "[libsass](https://github.com/hcatlin/libsass)"
 
+* * *
 
 ###Required:###
 
-* libsass (*libsass-python*): <http://dahlia.kr/libsass-python>
+* libsass (*libsass-python*): <http://dahlia.kr/libsass-python> *you need to have C/C++ compiler*
+* webassets: <https://pypi.python.org/pypi/webassets>
 
+* * *
 
 ###Installation:###
 
-* install **libsass**: `easy_install libsass` or `pip install libsass`, 
-this will install the module, you need to have the C++ support for GCC to compile ( on fedora: `yum install gcc-c++` )
+####Option 1:####
 
-* install **webassets**:
+download and extract, then: `python setup.py install`
 
-    ####Option 1:####
-    
-    `easy_install webassets` or `pip install webassets`
-    
-    copy **libsass.py** to **filter** directory on **webassets** installation
-    
-    example: `/usr/lib/python2.7/site-packages/webassets/filter/`
-    
-    ####Option 2:####
-    
-    download **webassets** source, extract, copy **libsass.py** to **filter** directory and run `setup.py install`
+####Option 2:####
 
+run `pip install webassets-libsass`
+
+* * *
 
 ###Use:###
+
+Register filter:
+```
+from webassets.filter import register_filter
+from webassets_libsass import LibSass
+
+register_filter(LibSass)
+```
+
 
 Like another webassets filter:
 ```
@@ -39,6 +43,8 @@ foundation = Bundle(
     output='css/foundation.css'
 )
 ```
+
+* * *
 
 ###Config Options:###
 

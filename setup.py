@@ -1,19 +1,19 @@
 # coding=utf-8
-#!/usr/bin/env python
+# !/usr/bin/env python
 
 from setuptools import setup, find_packages
 
 setup(
     name='webassets-libsass',
-    version='0.1',
+    version='0.2',
     description='Filter for asset management "webassets" that uses "libsass"',
     url='https://bitbucket.org/jhuss/webassets-libsass',
     author='Jesús Jerez',
     author_email='jerezmoreno@gmail.com',
     license='BSD',
     install_requires=[
-        'libsass',
-        'webassets'
+        'libsass>=0.11',
+        'webassets>=0.11'
     ],
     packages=['webassets_libsass'],
     classifiers=[

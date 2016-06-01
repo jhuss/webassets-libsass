@@ -2,7 +2,7 @@
 
 """
 author    = "Jesús Jerez <jerezmoreno@gmail.com>"
-copyright = "2016"
+copyright = "2014-2016"
 license   = "BSD"
 """
 
@@ -25,13 +25,13 @@ class LibSass(Filter):
     implementation of a Sass compiler `Libsass
     <https://github.com/hcatlin/libsass>`_
 
-    *Compiler Parameters:*
+    *Configuration Options:*
 
-    output_style (style)
+    LIBSASS_OUTPUT_STYLE (output_style)
         an optional coding style of the compiled result. choose one of:
         `nested` (default), `expanded`, `compact`, `compressed`
 
-    include_paths (includes)
+    LIBSASS_INCLUDE_PATHS (include_paths)
         an optional list of paths to find @imported SASS/CSS source files
 
     See libsass documentation for full documentation about these configuration
@@ -42,8 +42,8 @@ class LibSass(Filter):
 
     name = 'libsass'
     options = {
-        'style': 'output_style',
-        'includes': 'include_paths'
+        'style': 'LIBSASS_OUTPUT_STYLE',
+        'include': 'LIBSASS_INCLUDE_PATHS'
     }
     max_debug_level = None
 
@@ -67,6 +67,6 @@ class LibSass(Filter):
             self.sass.compile(
                 filename=source_path,
                 output_style=self.style,
-                include_paths=(self.includes if self.includes else []),
+                include_paths=(self.include if self.include else []),
             )
         )

@@ -39,13 +39,15 @@ foundation = Bundle(
 )
 
 
-Config Options
-==============
-LIBSASS_STYLE
+Configuration Options
+=====================
+LIBSASS_OUTPUT_STYLE (output_style)
 an optional coding style of the compiled result. choose one of: nested (default), expanded, compact, compressed
 
-LIBSASS_INCLUDES
+LIBSASS_INCLUDE_PATHS (include_paths)
 an optional list of paths to find @imported SASS/CSS source files
 
-LIBSASS_IMAGES
-an optional path to find images
+Example:
+env = Environment( ... )
+env.config['LIBSASS_OUTPUT_STYLE'] = 'compressed'
+Bundle('src/test.scss', filters='libsass', output='out/test.css')
